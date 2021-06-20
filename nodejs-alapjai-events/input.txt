@@ -1,0 +1,4 @@
+Hosszabb, több soros szöveg a szavak első kezdőbetűjét nagybetűssé alakítását végző függvény tesztelésére.
+Ha nem megfelően működik, lesznek szavak, amik kisbetűvel kezdődnek továbbra is.
+Ezen kívül is lehetnek még problémák, például nem a megfelelő helyen történik a vágás.
+Az is előfordulhat, hogy rosszul van kezelve az aszinkron viselkedés, és első látásra meglepő hiba lép fel.
