@@ -12,7 +12,7 @@ npm list --depth=0
 
 4. Feladat
 Írasd ki a konzolra az eslint csomag adatait!
-npm list eslint
+npm view eslint
 
 5. Feladat
 Kérdezd le az projekted elavult csomagjait, és ha van találat, frissítsd őket!
