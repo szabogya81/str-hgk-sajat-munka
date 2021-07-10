@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const conn = new Mongo()
 const db = conn.getDB('videoStore')
 
