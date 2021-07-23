@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Sample Blog API
+  description: A sample blog API to illustrate REST API concepts
+servers:
+  - url: http://localhost:3000
+paths:
+  /person:
+    get:
+      description: Returns a list of all people
+      responses:
+        '200':
+          description: List of people returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+    
+  /person/vaccinated:
+    get:
+      description: Returns the vaccinated people
+      responses:
+        '200':
+          description: Person data returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+  /person/count:
+    get:
+      description: Returns the number of vaccinated people
+      responses:
+        '200':
+          description: Vaccinated count data returned successfully
+          content:
+            application/json:
+              schema:
+                type: number
+components:
+  schemas:
+    Person:
+      type: object
+      required:
+        - id
+        - firstName
+        - lastName
+        - vaccine
+      properties:
+        id:
+          type: number
+        firstName:
+          type: string
+        lastName:
+          type: string
+        vaccine:
+          type: string
