@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Sample Blog API
-  description: A sample blog API to illustrate REST API concepts
+  title: Vaccinated API
+  description: A sample vaccinated API
 servers:
   - url: http://localhost:3000
 paths:
@@ -21,7 +21,7 @@ paths:
     
   /person/vaccinated:
     get:
-      description: Returns the vaccinated people
+      description: Returns only the vaccinated people
       responses:
         '200':
           description: Person data returned successfully
@@ -38,7 +38,7 @@ paths:
           content:
             application/json:
               schema:
-                type: number
+                type: integer
 components:
   schemas:
     Person:
@@ -50,7 +50,7 @@ components:
         - vaccine
       properties:
         id:
-          type: number
+          type: integer
         firstName:
           type: string
         lastName:
