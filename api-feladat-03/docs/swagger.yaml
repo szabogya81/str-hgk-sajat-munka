@@ -1,0 +1,126 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Vaccinated API
+  description: A sample vaccinated API
+servers:
+  - url: http://localhost:3000
+paths:
+  /person:
+    get:
+      description: Returns a list of all people
+      responses:
+        "200":
+          description: List of people returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Person"
+    post:
+      summary: Creates a new person.
+      consumes:
+        - application/json
+      requestBody:
+        description: The new person to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Person"
+      responses:
+        201:
+          description: OK
+  /person/vaccinated:
+    get:
+      description: Returns only the vaccinated people
+      responses:
+        "200":
+          description: Person data returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Person"
+  /person/count:
+    get:
+      description: Returns the number of vaccinated people
+      responses:
+        "200":
+          description: Vaccinated count data returned successfully
+          content:
+            application/json:
+              schema:
+                type: integer
+  /person/{id}/vaccinated:
+    get:
+      description: Returns whether the person with given id is vaccinated
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The person Id
+      responses:
+        "200":
+          description: Vaccinated status returned successfully
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /person/{id}/{vaccine}:
+    put:
+      summary: Updates a person's vaccine type
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The person Id
+        - in: path
+          name: vaccine
+          required: true
+          schema:
+            type: string
+          description: The vaccine type
+      responses:
+        "200":
+          description: OK
+  /person/{vaccine}:
+    delete:
+      summary: Delete all person data with the given vaccine type
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: vaccine
+          required: true
+          schema:
+            type: string
+          description: The vaccine type
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    Person:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - vaccine
+      properties:
+        id:
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+        vaccine:
+          type: string
