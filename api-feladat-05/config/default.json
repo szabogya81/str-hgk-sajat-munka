@@ -1,0 +1,7 @@
+{
+  "database": {
+    "username": "NodeUser",
+    "password": "njSIHuKF2U7DVm4o",
+    "host": "localhost:27017/api-feladat?retryWrites=true&w=majority"
+  }
+}
